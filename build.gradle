@@ -14,7 +14,9 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
-    compile group:'io.github.sdkei', name:'sdkei_kotlin_jvm_utils', version:'0.0.0'
+    compile group:'io.github.sdkei', name:'sdkei_kotlin_jvm_utils', version:'0.0.1'
+
+    testCompile "junit:junit:4.12"
 }
 
 compileKotlin {
