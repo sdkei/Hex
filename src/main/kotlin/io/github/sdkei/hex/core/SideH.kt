@@ -4,9 +4,9 @@ import io.github.sdkei.kotlin_jvm_utils.cyclicNext
 import io.github.sdkei.kotlin_jvm_utils.cyclicPrev
 
 /**
- * A side (edge) of a hex.
+ * A side (edge) of a hex which aligns horizontally.
  */
-enum class Side {
+enum class SideH {
     /** A side of 1 O'clock direction. */
     _1,
     /** A side of 3 O'clock direction. */
@@ -22,15 +22,15 @@ enum class Side {
     ;
 }
 
-val Side.clockwise: Side
+val SideH.clockwise: SideH
     get() = this.cyclicNext
-val Side.counterClockwise: Side
+val SideH.counterClockwise: SideH
     get() = this.cyclicPrev
-val Side.opposite: Side
+val SideH.opposite: SideH
     get() = this.cyclicNext(3)
-val Side.clockwiseApex: Apex
-    get() = Apex.values().let { it[this.ordinal] }
-val Side.counterClockwiseApex: Apex
+val SideH.clockwiseApex: ApexH
+    get() = ApexH.values().let { it[this.ordinal] }
+val SideH.counterClockwiseApex: ApexH
     get() = this.clockwiseApex.cyclicPrev
-val Side.unitVector: HexVector
-    get() = HexVector.unitOf(this)
+val SideH.unitVector: HexVectorH
+    get() = HexVectorH.unitOf(this)

@@ -4,9 +4,9 @@ import io.github.sdkei.kotlin_jvm_utils.cyclicNext
 import io.github.sdkei.kotlin_jvm_utils.cyclicPrev
 
 /**
- * An apex of a hex.
+ * An apex of a hex which aligns horizontally.
  */
-enum class Apex {
+enum class ApexH {
     /** An apex of 0 O'clock direction. */
     _0,
     /** An apex of 2 O'clock direction. */
@@ -22,13 +22,13 @@ enum class Apex {
     ;
 }
 
-val Apex.clockwise: Apex
+val ApexH.clockwise: ApexH
     get() = this.cyclicNext
-val Apex.counterClockwise: Apex
+val ApexH.counterClockwise: ApexH
     get() = this.cyclicPrev
-val Apex.opposite: Apex
+val ApexH.opposite: ApexH
     get() = this.cyclicNext(3)
-val Apex.clockwiseSide: Side
+val ApexH.clockwiseSide: SideH
     get() = this.counterClockwiseSide.cyclicNext
-val Apex.counterClockwiseSide: Side
-    get() = Side.values().let { it[this.ordinal] }
+val ApexH.counterClockwiseSide: SideH
+    get() = SideH.values().let { it[this.ordinal] }
