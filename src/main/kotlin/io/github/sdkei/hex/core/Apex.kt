@@ -7,18 +7,18 @@ import io.github.sdkei.kotlin_jvm_utils.cyclicPrev
  * An apex of a hex.
  */
 enum class Apex {
-    /** An apex of 1 O'clock direction. */
-    _1,
-    /** An apex of 3 O'clock direction. */
-    _3,
-    /** An apex of 5 O'clock direction. */
-    _5,
-    /** An apex of 7 O'clock direction. */
-    _7,
-    /** An apex of 9 O'clock direction. */
-    _9,
-    /** An apex of 11 O'clock direction. */
-    _11,
+    /** An apex of 0 O'clock direction. */
+    _0,
+    /** An apex of 2 O'clock direction. */
+    _2,
+    /** An apex of 4 O'clock direction. */
+    _4,
+    /** An apex of 6 O'clock direction. */
+    _6,
+    /** An apex of 8 O'clock direction. */
+    _8,
+    /** An apex of 10 O'clock direction. */
+    _10,
     ;
 }
 

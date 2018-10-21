@@ -7,18 +7,18 @@ import io.github.sdkei.kotlin_jvm_utils.cyclicPrev
  * A side (edge) of a hex.
  */
 enum class Side {
-    /** A side of 0 O'clock direction. */
-    _0,
-    /** A side of 2 O'clock direction. */
-    _2,
-    /** A side of 4 O'clock direction. */
-    _4,
-    /** A side of 6 O'clock direction. */
-    _6,
-    /** A side of 8 O'clock direction. */
-    _8,
-    /** A side of 10 O'clock direction. */
-    _10,
+    /** A side of 1 O'clock direction. */
+    _1,
+    /** A side of 3 O'clock direction. */
+    _3,
+    /** A side of 5 O'clock direction. */
+    _5,
+    /** A side of 7 O'clock direction. */
+    _7,
+    /** A side of 9 O'clock direction. */
+    _9,
+    /** A side of 11 O'clock direction. */
+    _11,
     ;
 }
 

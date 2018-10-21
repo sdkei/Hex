@@ -15,23 +15,23 @@ class ApexTest {
     fun test_toPoint() {
         val delta = 1.0 / 0x1000000
 
-        Apex._3.toPoint().let {
-            assertEquals(0.0.degToRad(), atan2(it.y, it.x), delta)
+        Apex._4.toPoint().let {
+            assertEquals(30.0.degToRad(), atan2(it.y, it.x), delta)
         }
-        Apex._5.toPoint().let {
-            assertEquals(60.0.degToRad(), atan2(it.y, it.x), delta)
+        Apex._6.toPoint().let {
+            assertEquals(90.0.degToRad(), atan2(it.y, it.x), delta)
         }
-        Apex._7.toPoint().let {
-            assertEquals(120.0.degToRad(), atan2(it.y, it.x), delta)
+        Apex._8.toPoint().let {
+            assertEquals(150.0.degToRad(), atan2(it.y, it.x), delta)
         }
-        Apex._9.toPoint().let {
-            assertEquals(180.0.degToRad(), atan2(it.y, it.x), delta)
+        Apex._10.toPoint().let {
+            assertEquals(210.0.degToRad(), atan2(it.y, it.x), delta)
         }
-        Apex._11.toPoint().let {
-            assertEquals(240.0.degToRad(), atan2(it.y, it.x), delta)
+        Apex._0.toPoint().let {
+            assertEquals(270.0.degToRad(), atan2(it.y, it.x), delta)
         }
-        Apex._1.toPoint().let {
-            assertEquals(300.0.degToRad(), atan2(it.y, it.x), delta)
+        Apex._2.toPoint().let {
+            assertEquals(330.0.degToRad(), atan2(it.y, it.x), delta)
         }
 
         Apex.values().map { it.toPoint() }.forEach {
