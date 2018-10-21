@@ -42,6 +42,11 @@ class Vector private constructor(
         }
     }
 
+    operator fun unaryPlus() = this
+
+    operator fun unaryMinus() =
+            Vector(-_0, -_2)
+
     operator fun plus(other: Vector) =
             Vector(this._0 + other._0, this._2 + other._2)
 
