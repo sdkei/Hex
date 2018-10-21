@@ -61,8 +61,8 @@ class Vector private constructor(
 
     /** Returns each value of specified elements. */
     fun elementsOf(one: Side, other: Side): Pair<Int, Int> {
-        require(one != other) { "Arguments `one` and `other` must not be same." }
-        require(one.opposite != other) { "Arguments `one` and `other` must not be opposite." }
+        require(one != other) { "Arguments `one` and `other` must not be same. one and other: $one" }
+        require(one.opposite != other) { "Arguments `one` and `other` must not be opposite. one: $one, other: $other" }
 
         TODO()
     }
