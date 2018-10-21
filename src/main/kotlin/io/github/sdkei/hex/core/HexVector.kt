@@ -3,36 +3,36 @@ package io.github.sdkei.hex.core
 import kotlin.math.absoluteValue
 
 /**
- * An vector which represent absolute or relative position of a hex.
+ * A vector which represent logical location (absolute or relative) of a hex.
  *
  * It can't be created by using constructor.
- * It is got by property (such as [Vector.UNIT_0]) and operation (such as `+`, `-`).
+ * It is got by property (such as [HexVector.UNIT_0]) and operation (such as `+`, `-`).
  */
-class Vector private constructor(
-        /** An element of 0 O'clock. */
+class HexVector private constructor(
+        /** An element of 0 O'clock direction. */
         private val _0: Int,
-        /** An element of 2 O'clock. */
+        /** An element of 2 O'clock direction. */
         private val _2: Int
 ) {
     companion object {
         /** Zero vector. */
-        val ZERO = Vector(0, 0)
+        val ZERO = HexVector(0, 0)
 
         /** Unit vector to 0 O'clock direction. */
-        val UNIT_0 = Vector(1, 0)
+        val UNIT_0 = HexVector(1, 0)
         /** Unit vector to 2 O'clock direction. */
-        val UNIT_2 = Vector(0, 1)
+        val UNIT_2 = HexVector(0, 1)
         /** Unit vector to 4 O'clock direction. */
-        val UNIT_4 = Vector(-1, 1)
+        val UNIT_4 = HexVector(-1, 1)
         /** Unit vector to 6 O'clock direction. */
-        val UNIT_6 = Vector(-1, 0)
+        val UNIT_6 = HexVector(-1, 0)
         /** Unit vector to 8 O'clock direction. */
-        val UNIT_8 = Vector(0, -1)
+        val UNIT_8 = HexVector(0, -1)
         /** Unit vector to 10 O'clock direction. */
-        val UNIT_10 = Vector(1, -1)
+        val UNIT_10 = HexVector(1, -1)
 
-        /** Returns unit vector to specific side. */
-        fun unitOf(side: Side): Vector = when (side) {
+        /** Returns unit vector to specified side of `this`. */
+        fun unitOf(side: Side): HexVector = when (side) {
             Side._0 -> UNIT_0
             Side._2 -> UNIT_2
             Side._4 -> UNIT_4
@@ -45,16 +45,16 @@ class Vector private constructor(
     operator fun unaryPlus() = this
 
     operator fun unaryMinus() =
-            Vector(-_0, -_2)
+            HexVector(-_0, -_2)
 
-    operator fun plus(other: Vector) =
-            Vector(this._0 + other._0, this._2 + other._2)
+    operator fun plus(other: HexVector) =
+            HexVector(this._0 + other._0, this._2 + other._2)
 
-    operator fun minus(other: Vector) =
-            Vector(this._0 - other._0, this._2 - other._2)
+    operator fun minus(other: HexVector) =
+            HexVector(this._0 - other._0, this._2 - other._2)
 
     operator fun times(scalar: Int) =
-            Vector(_0 * scalar, _2 * scalar)
+            HexVector(_0 * scalar, _2 * scalar)
 
     /** The length (number of hexes) of this vector. */
     val length: Int
@@ -78,7 +78,7 @@ class Vector private constructor(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Vector
+        other as HexVector
 
         if (_0 != other._0) return false
         if (_2 != other._2) return false

@@ -32,5 +32,5 @@ val Side.clockwiseApex: Apex
     get() = Apex.values().let { it[this.ordinal] }
 val Side.counterClockwiseApex: Apex
     get() = this.clockwiseApex.cyclicPrev
-val Side.unitVector: Vector
-    get() = Vector.unitOf(this)
+val Side.unitVector: HexVector
+    get() = HexVector.unitOf(this)
