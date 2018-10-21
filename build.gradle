@@ -7,10 +7,14 @@ version '0.0.0'
 
 repositories {
     mavenCentral()
+
+    maven { url 'https://sdkei.github.io/KotlinJvmUtils/' }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    compile group:'io.github.sdkei', name:'sdkei_kotlin_jvm_utils', version:'0.0.0'
 }
 
 compileKotlin {
