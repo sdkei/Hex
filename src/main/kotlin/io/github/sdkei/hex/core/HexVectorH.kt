@@ -69,7 +69,13 @@ class HexVectorH private constructor(
         require(one != other) { "Arguments `one` and `other` must not be same. one and other: $one" }
         require(one.opposite != other) { "Arguments `one` and `other` must not be opposite. one: $one, other: $other" }
 
-        TODO()
+        val unitOne = one.unitVector
+        val unitOther = other.unitVector
+        val elementOne = (_5 * unitOther._3 - _3 * unitOther._5) /
+                (unitOne._5 * unitOther._3 - unitOne._3 * unitOther._5)
+        val elementOther = (_5 * unitOne._3 - _3 * unitOne._5) /
+                (unitOther._5 * unitOne._3 - unitOther._3 * unitOne._5)
+        return elementOne to elementOther
     }
 
     override fun toString(): String = "<$_3 to 3 o'clock direction, $_5 to 5 o'clock direction>"
