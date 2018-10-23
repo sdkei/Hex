@@ -44,11 +44,11 @@ class PseudoHexHTest {
         assertEquals(PseudoHexH(2, 1),
                 (HexVectorH.UNIT_3 * 2 + HexVectorH.UNIT_5 * 1).toPseudoHex())
 
-        assertEquals(PseudoHexH(1, 1),
+        assertEquals(PseudoHexH(1, 2),
                 (HexVectorH.UNIT_3 * 0 + HexVectorH.UNIT_5 * 2).toPseudoHex())
-        assertEquals(PseudoHexH(2, 1),
+        assertEquals(PseudoHexH(2, 2),
                 (HexVectorH.UNIT_3 * 1 + HexVectorH.UNIT_5 * 2).toPseudoHex())
-        assertEquals(PseudoHexH(3, 1),
+        assertEquals(PseudoHexH(3, 2),
                 (HexVectorH.UNIT_3 * 2 + HexVectorH.UNIT_5 * 2).toPseudoHex())
     }
 }
