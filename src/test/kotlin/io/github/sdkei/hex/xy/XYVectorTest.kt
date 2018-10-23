@@ -9,10 +9,10 @@ import kotlin.math.hypot
 import kotlin.math.sqrt
 
 
-class ApexHTest {
+class XYVectorTest {
 
     @Test
-    fun test_toPoint() {
+    fun test_ApexH_toXYVector() {
         val delta = 1.0 / 0x1000000
 
         ApexH._4.toXYVector().let {
