@@ -13,6 +13,316 @@ import kotlin.math.sqrt
 class XYVectorTest {
 
     @Test
+    fun test_XYVector_toHexVectorH() {
+
+        // around HexVector.UNIT_1
+        run {
+            // around 0 O'clock apex
+            assertEquals(HexVectorH.UNIT_1,
+                    XYVector(0.5, -1.443).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_11,
+                    XYVector(0.4999, -1.444).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_1,
+                    XYVector(0.5, -1.444).toHexVectorH())
+
+            // around 2 O'clock apex
+            assertEquals(HexVectorH.UNIT_1,
+                    XYVector(0.9999, -1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_1,
+                    XYVector(0.9999, -1.155).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_3,
+                    XYVector(1.0, -1.154).toHexVectorH())
+
+            // around 4 O'clock apex
+            assertEquals(HexVectorH.UNIT_1,
+                    XYVector(0.9999, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_3,
+                    XYVector(1.0, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_5,
+                    XYVector(0.9999, -0.577).toHexVectorH())
+
+            // around 6 O'clock apex
+            assertEquals(HexVectorH.UNIT_1,
+                    XYVector(0.5, -0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_5,
+                    XYVector(0.5, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_7,
+                    XYVector(0.4999, -0.288).toHexVectorH())
+
+            // around 8 O'clock apex
+            assertEquals(HexVectorH.UNIT_1,
+                    XYVector(0.0, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_7,
+                    XYVector(0.0, -0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_9,
+                    XYVector(-0.0001, -0.578).toHexVectorH())
+
+            // around 10 O'clock apex
+            assertEquals(HexVectorH.UNIT_1,
+                    XYVector(0.0, -1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_9,
+                    XYVector(-0.0001, -1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_1 + HexVectorH.UNIT_11,
+                    XYVector(0.0, -1.155).toHexVectorH())
+        }
+
+        // around HexVector.UNIT_3
+        run {
+            // around 0 O'clock apex
+            assertEquals(HexVectorH.UNIT_3,
+                    XYVector(1.0, -0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_11,
+                    XYVector(0.9999, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_1,
+                    XYVector(1.0, -0.578).toHexVectorH())
+
+            // around 2 O'clock apex
+            assertEquals(HexVectorH.UNIT_3,
+                    XYVector(1.4999, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_1,
+                    XYVector(1.4999, -0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_3,
+                    XYVector(1.5, -0.288).toHexVectorH())
+
+            // around 4 O'clock apex
+            assertEquals(HexVectorH.UNIT_3,
+                    XYVector(1.4999, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_3,
+                    XYVector(1.5, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_5,
+                    XYVector(1.4999, 0.289).toHexVectorH())
+
+            // around 6 O'clock apex
+            assertEquals(HexVectorH.UNIT_3,
+                    XYVector(1.0, 0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_5,
+                    XYVector(1.0, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_7,
+                    XYVector(0.9999, 0.578).toHexVectorH())
+
+            // around 8 O'clock apex
+            assertEquals(HexVectorH.UNIT_3,
+                    XYVector(0.5, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_7,
+                    XYVector(0.5, 0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_9,
+                    XYVector(0.4999, 0.288).toHexVectorH())
+
+            // around 10 O'clock apex
+            assertEquals(HexVectorH.UNIT_3,
+                    XYVector(0.5, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_9,
+                    XYVector(0.4999, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_3 + HexVectorH.UNIT_11,
+                    XYVector(0.5, -0.289).toHexVectorH())
+        }
+
+        // around HexVector.UNIT_5
+        run {
+            // around 0 O'clock apex
+            assertEquals(HexVectorH.UNIT_5,
+                    XYVector(0.5, 0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_11,
+                    XYVector(0.4999, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_1,
+                    XYVector(0.5, 0.288).toHexVectorH())
+
+            // around 2 O'clock apex
+            assertEquals(HexVectorH.UNIT_5,
+                    XYVector(0.9999, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_1,
+                    XYVector(0.9999, 0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_3,
+                    XYVector(1.0, 0.578).toHexVectorH())
+
+            // around 4 O'clock apex
+            assertEquals(HexVectorH.UNIT_5,
+                    XYVector(0.9999, 1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_3,
+                    XYVector(1.0, 1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_5,
+                    XYVector(0.9999, 1.155).toHexVectorH())
+
+            // around 6 O'clock apex
+            assertEquals(HexVectorH.UNIT_5,
+                    XYVector(0.5, 1.443).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_5,
+                    XYVector(0.5, 1.444).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_7,
+                    XYVector(0.4999, 1.444).toHexVectorH())
+
+            // around 8 O'clock apex
+            assertEquals(HexVectorH.UNIT_5,
+                    XYVector(0.0, 1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_7,
+                    XYVector(0.0, 1.155).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_9,
+                    XYVector(-0.0001, 1.154).toHexVectorH())
+
+            // around 10 O'clock apex
+            assertEquals(HexVectorH.UNIT_5,
+                    XYVector(0.0, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_9,
+                    XYVector(-0.0001, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_5 + HexVectorH.UNIT_11,
+                    XYVector(0.0, 0.577).toHexVectorH())
+        }
+
+        // around HexVector.UNIT_7
+        run {
+            // around 0 O'clock apex
+            assertEquals(HexVectorH.UNIT_7,
+                    XYVector(-0.5, 0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_11,
+                    XYVector(-0.5001, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_1,
+                    XYVector(-0.5, 0.288).toHexVectorH())
+
+            // around 2 O'clock apex
+            assertEquals(HexVectorH.UNIT_7,
+                    XYVector(-0.0001, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_1,
+                    XYVector(-0.0001, 0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_3,
+                    XYVector(-0.0, 0.578).toHexVectorH())
+
+            // around 4 O'clock apex
+            assertEquals(HexVectorH.UNIT_7,
+                    XYVector(-0.0001, 1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_3,
+                    XYVector(-0.0, 1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_5,
+                    XYVector(-0.0001, 1.155).toHexVectorH())
+
+            // around 6 O'clock apex
+            assertEquals(HexVectorH.UNIT_7,
+                    XYVector(-0.5, 1.443).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_5,
+                    XYVector(-0.5, 1.444).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_7,
+                    XYVector(-0.5001, 1.444).toHexVectorH())
+
+            // around 8 O'clock apex
+            assertEquals(HexVectorH.UNIT_7,
+                    XYVector(-1.0, 1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_7,
+                    XYVector(-1.0, 1.155).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_9,
+                    XYVector(-1.0001, 1.154).toHexVectorH())
+
+            // around 10 O'clock apex
+            assertEquals(HexVectorH.UNIT_7,
+                    XYVector(-1.0, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_9,
+                    XYVector(-1.0001, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_7 + HexVectorH.UNIT_11,
+                    XYVector(-1.0, 0.577).toHexVectorH())
+        }
+
+        // around HexVector.UNIT_9
+        run {
+            // around 0 O'clock apex
+            assertEquals(HexVectorH.UNIT_9,
+                    XYVector(-1.0, -0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_11,
+                    XYVector(-1.0001, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_1,
+                    XYVector(-1.0, -0.578).toHexVectorH())
+
+            // around 2 O'clock apex
+            assertEquals(HexVectorH.UNIT_9,
+                    XYVector(-0.5001, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_1,
+                    XYVector(-0.5001, -0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_3,
+                    XYVector(-0.5, -0.288).toHexVectorH())
+
+            // around 4 O'clock apex
+            assertEquals(HexVectorH.UNIT_9,
+                    XYVector(-0.5001, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_3,
+                    XYVector(-0.5, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_5,
+                    XYVector(-0.5001, 0.289).toHexVectorH())
+
+            // around 6 O'clock apex
+            assertEquals(HexVectorH.UNIT_9,
+                    XYVector(-1.0, 0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_5,
+                    XYVector(-1.0, 0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_7,
+                    XYVector(-1.0001, 0.578).toHexVectorH())
+
+            // around 8 O'clock apex
+            assertEquals(HexVectorH.UNIT_9,
+                    XYVector(-1.5, 0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_7,
+                    XYVector(-1.5, 0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_9,
+                    XYVector(-1.5001, 0.288).toHexVectorH())
+
+            // around 10 O'clock apex
+            assertEquals(HexVectorH.UNIT_9,
+                    XYVector(-1.5, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_9,
+                    XYVector(-1.5001, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_9 + HexVectorH.UNIT_11,
+                    XYVector(-1.5, -0.289).toHexVectorH())
+        }
+
+        // around HexVector.UNIT_11
+        run {
+            // around 0 O'clock apex
+            assertEquals(HexVectorH.UNIT_11,
+                    XYVector(-0.5, -1.443).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_11,
+                    XYVector(-0.5001, -1.444).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_1,
+                    XYVector(-0.5, -1.444).toHexVectorH())
+
+            // around 2 O'clock apex
+            assertEquals(HexVectorH.UNIT_11,
+                    XYVector(-0.0001, -1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_1,
+                    XYVector(-0.0001, -1.155).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_3,
+                    XYVector(0.0, -1.154).toHexVectorH())
+
+            // around 4 O'clock apex
+            assertEquals(HexVectorH.UNIT_11,
+                    XYVector(-0.0001, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_3,
+                    XYVector(0.0, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_5,
+                    XYVector(-0.0001, -0.577).toHexVectorH())
+
+            // around 6 O'clock apex
+            assertEquals(HexVectorH.UNIT_11,
+                    XYVector(-0.5, -0.289).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_5,
+                    XYVector(-0.5, -0.288).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_7,
+                    XYVector(-0.5001, -0.288).toHexVectorH())
+
+            // around 8 O'clock apex
+            assertEquals(HexVectorH.UNIT_11,
+                    XYVector(-1.0, -0.578).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_7,
+                    XYVector(-1.0, -0.577).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_9,
+                    XYVector(-1.0001, -0.578).toHexVectorH())
+
+            // around 10 O'clock apex
+            assertEquals(HexVectorH.UNIT_11,
+                    XYVector(-1.0, -1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_9,
+                    XYVector(-1.0001, -1.154).toHexVectorH())
+            assertEquals(HexVectorH.UNIT_11 + HexVectorH.UNIT_11,
+                    XYVector(-1.0, -1.155).toHexVectorH())
+        }
+    }
+
+    @Test
     fun test_HexVector_toXYVector() {
         val delta = 1.0 / 0x1000000
 
